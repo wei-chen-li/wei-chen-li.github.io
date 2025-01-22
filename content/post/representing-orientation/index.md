@@ -17,7 +17,7 @@ We attach a frame (a set of three orthogonal unit vectors) to a rigid body, and 
 The $SO(3)$ is the set of all $3 \times 3$ matrices defined by
 
 $$
-  SO(3) \coloneqq \{ \mathbf{T} \,\vert\, \mathbf{T}^\top \mathbf{T} = \mathbf{T} \mathbf{T}^\top = \mathbf{I}, \mathrm{det}(\mathbf{T}) = 1 \} .
+  SO(3) \coloneqq \{ \mathbf{T} \in \mathbb{R}^{3 \times 3} \,\vert\, \mathbf{T}^\top \mathbf{T} = \mathbf{T} \mathbf{T}^\top = \mathbf{I}, \mathrm{det}(\mathbf{T}) = 1 \} .
 $$
 
 ### Quaternion

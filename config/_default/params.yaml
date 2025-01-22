@@ -6,7 +6,7 @@
 # Appearance
 appearance:
   mode: system
-  color: emerald
+  color: zinc
 
 # SEO
 marketing:
@@ -31,11 +31,10 @@ header:
   navbar:
     enable: true
     blox: "navbar"
+    align: center
     fixed_to_top: false
     show_search: false
     show_theme_chooser: true
-    logo:
-      text: "Wei-Chen Li"
 
 # Site footer
 footer:
