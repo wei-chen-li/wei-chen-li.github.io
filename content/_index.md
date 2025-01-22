@@ -18,4 +18,14 @@ sections:
       button:
         text: Download CV
         url: uploads/CV.pdf
+  - block: collection
+    content:
+      title: Selected Publications
+      count: 0
+      filters:
+        folders:
+          - publication
+        featured_only: true
+    design:
+      view: citation
 ---

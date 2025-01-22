@@ -18,7 +18,7 @@ abstract: Common imaging techniques for detecting structural defects typically r
 
 tags:
 
-featured: false
+featured: true
 
 # links:
 # - name: ""

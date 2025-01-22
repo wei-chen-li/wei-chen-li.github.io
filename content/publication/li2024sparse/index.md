@@ -18,7 +18,7 @@ abstract: This study presents a novel eddy current sensing method for imaging de
 
 tags:
 
-featured: false
+featured: true
 
 # links:
 # - name: ""
