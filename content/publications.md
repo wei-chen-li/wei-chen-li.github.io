@@ -11,8 +11,7 @@ sections:
         publication_type: 'article'
     design:
       view: citation
-      spacing:
-        padding: ['0', '0', '0', '0']
+      css_class: pub-group
 
   - block: collection
     content:
@@ -23,8 +22,7 @@ sections:
         publication_type: 'article-journal'
     design:
       view: citation
-      spacing:
-        padding: ['0', '0', '0', '0']
+      css_class: pub-group
 
   - block: collection
     content:
@@ -35,8 +33,7 @@ sections:
         publication_type: 'paper-conference'
     design:
       view: citation
-      spacing:
-        padding: ['0', '0', '0', '0']
+      css_class: pub-group
 
   - block: collection
     content:
@@ -47,6 +44,5 @@ sections:
         publication_type: 'thesis'
     design:
       view: citation
-      spacing:
-        padding: ['0', '0', '0', '0']
+      css_class: pub-group
 ---

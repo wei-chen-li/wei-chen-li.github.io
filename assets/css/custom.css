@@ -448,7 +448,7 @@ label.margin-toggle:not(.sidenote-number) {
     }
 }
 
-/* My additional custom styles */
+/* Additional website styles */
 
 p {
     text-align: justify;
@@ -456,4 +456,19 @@ p {
 
 .page-footer {
     display: none;
+}
+
+/* Additional publication section styles */
+.pub-group {
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+}
+
+.pub-group > div:nth-of-type(2) {
+    align-items: start;
+    max-width: 48rem
+}
+
+.pub-group > div:nth-of-type(3) > div {
+    margin-top: 0;
 }
