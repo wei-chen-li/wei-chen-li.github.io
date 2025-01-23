@@ -12,7 +12,7 @@ doi: ""
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "In *The 2025 IEEE/ASME International Conference on Advanced Intelligent Mechatronics*"
+publication: "*The 2025 IEEE/ASME International Conference on Advanced Intelligent Mechatronics*"
 
 abstract: This article presents an eddy current tomography framework for imaging defects in metal structures. The tomography problem is formulated as a linear inverse problem with a binary solution vector. A Bayesian approach is utilized, incorporating a binary-inducing prior and determining the posterior probability conditioned on the measurements. Since recovering binary vectors from underdetermined linear measurements is NP-hard, an approximation to the true posterior is obtained by minimizing a (KL) divergence. Alternatively, a convex optimization approach relaxes the binary constraint and applies (ADMM) to compute a solution. The convergence of both algorithms is proven. To improve computational efficiency, the two algorithms are cascaded and augmented with a decomposition technique to form a hybrid algorithm. The proposed framework is validated experimentally with a prototype eddy current sensing probe, demonstrating the ability to image defects as small as 1 mm at various depths using a sensor array with 4 mm spacing.
 

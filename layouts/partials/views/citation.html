@@ -1,0 +1,26 @@
+{{ $item := .item }}
+{{ $has_attachments := partial "functions/has_attachments" $item }}
+
+<div class="pub-list-item view-citation" style="margin-bottom: 1rem; text-align: justify;">
+  {{ partial "page_metadata_authors" $item }},
+
+  “{{ $item.Title }},”
+
+  {{ if $item.Params.publication_types }}
+    {{ if in $item.Params.publication_types "paper-conference" }}
+      In
+    {{ end }}
+  {{ end }}
+  {{ if $item.Params.publication }}
+    {{- $item.Params.publication | markdownify -}},
+  {{ end }}
+
+  {{- $item.Date.Format "Jan. 2006" -}}.
+
+  {{ if $has_attachments }}
+  <div class="flex flex-wrap space-x-3">
+    {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+  </div>
+  {{ end }}
+
+</div>

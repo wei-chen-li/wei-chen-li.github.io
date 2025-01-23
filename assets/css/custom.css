@@ -476,3 +476,8 @@ p {
 .pub-group > div:nth-of-type(3) > div {
     margin-top: 0;
 }
+
+.pub-group > div:nth-of-type(3) .hb-attachment-link {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}

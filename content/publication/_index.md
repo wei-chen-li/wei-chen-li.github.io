@@ -26,7 +26,7 @@ sections:
 
   - block: collection
     content:
-      title: Conference papers
+      title: Conference paper
       filters:
         folders:
           - publication

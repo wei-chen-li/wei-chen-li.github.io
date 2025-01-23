@@ -12,7 +12,7 @@ doi: ""
 publication_types: ["paper-conference"]
 
 # Publication name and optional abbreviated publication name.
-publication: "In *The 21th International Conference on Automation Technology*"
+publication: "*The 21th International Conference on Automation Technology*"
 
 abstract: Traditional raster scanning methods for defect imaging require sampling at more than twice the spatial frequency to achieve the desired spatial resolution. This study presents a new approach for defect imaging that uses spatially sparse measurements, significantly reducing the number of samples needed compared to the Nyquist rate. In this method, defects in a metal slab are modeled as perturbations in material properties. Perturbation analysis is applied to the eddy current system to establish a linear relationship between the measured magnetic flux density (MFD) and the material properties. This relationship forms a linear system where the solution is a vector with entries within the range [0, 1]. To recover this vector from a limited number of measurements, a probabilistic method is employed. A beta prior is applied to the vector to enforce the unit interval constraint, and a variational approximation of the posterior probability, conditioned on the measurements, is computed. The proposed framework is evaluated using both simulated and experimental data to image defects in a metal plate. The results demonstrate that the method can image defects as small as 2 mm with a sensor spacing of 4 mm, significantly surpassing the resolution limits imposed by the Nyquist theorem.
 
