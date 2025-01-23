@@ -27,14 +27,22 @@ organizations:
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  - icon: envelope
-    url: 'mailto:williamrob104@gmail.com'
-  - icon: brands/github
-    url: https://github.com/wei-chen-li
   - icon: brands/google-scholar
     url: https://scholar.google.com/citations?user=kk9RPBMAAAAJ
+  - icon: brands/github
+    url: https://github.com/wei-chen-li
+  - icon: envelope
+    url: 'mailto:williamrob104@gmail.com'
+  - icon: brands/cv
+    url: 'uploads/CV.pdf'
 ---
 
 ## About Me
 
-Wei-Chen Li (李韋辰) is
+I received my BS and MS degree from National Taiwan University. Currently I am working as a research assistant. My areas of research include modeling, Bayesian inference, and convex optimization with application to sensing and robot manipulation.
+
+Visit my [github](https://github.com/wei-chen-li) for some of my projects.
+
+Visit my [blog](post/) for things that are not easy to find on the internet.
+
+I am also a film lover. Visit my [letterboxd](https://letterboxd.com/williamrob104) profile page.
