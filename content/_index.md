@@ -12,14 +12,4 @@ sections:
   - block: resume-biography-3
     content:
       username: Wei-Chen Li
-  - block: collection
-    content:
-      title: Selected Publications
-      count: 0
-      filters:
-        folders:
-          - publication
-        featured_only: true
-    design:
-      view: citation
 ---

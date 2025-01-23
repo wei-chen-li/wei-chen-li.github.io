@@ -1,9 +1,6 @@
 ---
-title: Publications
-cms_exclude: false
-
-# View.
-view: citation
+_build:
+  render: never
 
 cascade:
   reading_time: false
