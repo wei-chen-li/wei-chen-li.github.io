@@ -6,4 +6,5 @@ cascade:
   share: false
   profile: false
   pager: false
+  commentable: true
 ---

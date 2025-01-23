@@ -57,3 +57,13 @@ features:
     enable: true
   privacy_pack:
     enable: false
+  comment:
+    provider: 'giscus'
+    giscus:
+      repo: wei-chen-li/wei-chen-li.github.io
+      repo_id: R_kgDONtyxlA
+      category: Comments
+      category_id: DIC_kwDONtyxlM4CmQ-d
+      mapping: pathname
+      theme: preferred_color_scheme
+      language_code: en
