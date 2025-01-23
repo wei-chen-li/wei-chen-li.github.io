@@ -454,6 +454,10 @@ p {
     text-align: justify;
 }
 
+#nav-menu .active {
+    text-decoration: underline;
+}
+
 .page-footer {
     display: none;
 }
