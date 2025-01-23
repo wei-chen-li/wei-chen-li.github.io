@@ -12,4 +12,7 @@ sections:
   - block: resume-biography-3
     content:
       username: Wei-Chen Li
+    design:
+      spacing:
+        padding: ['0', '0', '0', '0']
 ---
