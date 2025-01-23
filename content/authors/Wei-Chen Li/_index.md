@@ -43,6 +43,6 @@ I received my BS and MS degree from National Taiwan University. Currently I am w
 
 Visit my [github](https://github.com/wei-chen-li) for some of my projects.
 
-Visit my [blog](post/) for things that are not easy to find on the internet.
+I keep a [blog](post/) on things that are not easy to find on the internet.
 
 I am also a film lover. Visit my [letterboxd](https://letterboxd.com/williamrob104) profile page.
