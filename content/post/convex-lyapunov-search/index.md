@@ -8,7 +8,7 @@ authors:
   - Wei-Chen Li
 ---
 
-## Finding Lyapunov functions
+## Finding Lyapunov function
 
 <div class="rounded-border">
 
@@ -62,7 +62,11 @@ $$
 \end{align*}
 $$
 
-[Solving this semi-definite program (SDP)](https://colab.research.google.com/drive/1TSDaUau11-rVg7fH8REdvzqAWLlLPS9n) yields $a_{11}=1, a_{21}=0, a_{22}=2$. The resulting Lyapunov function is
+<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+</a>
+
+Solving this semi-definite program (SDP) yields $a_{11}=1, a_{21}=0, a_{22}=2$. The resulting Lyapunov function is
 
 $$
 V(\bm{x}) = \frac{1}{2} \bm{x}^\top \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix} \bm{x} .
@@ -77,5 +81,10 @@ $$
   &                   && -\dot{V}(\bm{x}) \text{ is SOS} .
 \end{align*}
 $$
-[Solving this SOS program](https://colab.research.google.com/drive/1TSDaUau11-rVg7fH8REdvzqAWLlLPS9n) also yields the same Lyapunov function.
+
+<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+</a>
+
+Solving this SOS program also yields the same Lyapunov function.
 </div>
