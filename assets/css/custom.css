@@ -481,3 +481,19 @@ p {
     margin-right: 0.25rem;
     margin-bottom: 0.25rem;
 }
+
+/* Additional post styles */
+.rounded-border {
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 0 0.8em 0 0.8em;
+}
+
+.prose {
+    max-width: none;
+}
+
+.md\:px-12 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

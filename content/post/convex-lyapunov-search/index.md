@@ -8,7 +8,11 @@ authors:
   - Wei-Chen Li
 ---
 
-**Example.** Consider the nonlinear system:
+## Finding Lyapunov functions
+
+<div class="rounded-border">
+
+<b>Example.</b> Consider the nonlinear system:
 
 $$
 \begin{align*}
@@ -17,7 +21,7 @@ $$
 \end{align*}
 $$
 
-To certify the stability of this system, we seek a Lyapunov function $V(\bm{x})$ that is positive-definite ensures $\dot{V}(\bm{x})$ is negative-definite. We parameterize $V(\bm{x})$ as
+To certify the stability of this system, we seek a Lyapunov function $V(\bm{x})$ that is positive-definite and ensure $\dot{V}(\bm{x})$ is negative-definite. We parameterize $V(\bm{x})$ as
 
 $$
 V(\bm{x}) = \frac{1}{2} \bm{x}^\top \underbrace{\begin{bmatrix} a_{11} & a_{21} \\ a_{21} & a_{22} \end{bmatrix}}_{\mathbf{A}} \bm{x} ,
@@ -61,10 +65,10 @@ $$
 [Solving this semi-definite program (SDP)](https://colab.research.google.com/drive/1TSDaUau11-rVg7fH8REdvzqAWLlLPS9n) yields $a_{11}=1, a_{21}=0, a_{22}=2$. The resulting Lyapunov function is
 
 $$
-\dot{V}(\bm{x}) = \frac{1}{2} \bm{x}^\top \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix} \bm{x} .
+V(\bm{x}) = \frac{1}{2} \bm{x}^\top \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix} \bm{x} .
 $$
 
-This technique, which involves expressing a function as a quadratic form and ensuring the associated matrix is positive or negative semi-definite, is encapsulated as sum of squares (SOS) programming. Hence, we can alternatively solve the following SOS optimization problem:
+This technique, which involves expressing a function as a quadratic form and ensuring the associated matrix is positive or negative semi-definite, is encapsulated as sum-of-squares (SOS) programming. Hence, we can alternatively solve the following SOS optimization problem:
 
 $$
 \begin{align*}
@@ -74,3 +78,4 @@ $$
 \end{align*}
 $$
 [Solving this SOS program](https://colab.research.google.com/drive/1TSDaUau11-rVg7fH8REdvzqAWLlLPS9n) also yields the same Lyapunov function.
+</div>
