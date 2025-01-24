@@ -52,4 +52,5 @@ cascade:
   share: false
   profile: false
   pager: false
+  private: true
 ---

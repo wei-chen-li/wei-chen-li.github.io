@@ -3,7 +3,8 @@ title: "Eddy current defect tomography using a hybrid binary vector recovery alg
 authors:
 - Wei-Chen Li
 - Chun-Yeon Lin
-date: "2025-01-14"
+date: 2025-07-14
+publishDate: 2025-01-14
 doi: ""
 
 # Publication type.
