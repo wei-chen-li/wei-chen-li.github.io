@@ -1,6 +1,6 @@
 ---
 title: "Representing orientation: $SO(3)$ matrix and quaternion"
-summary: "Proper ways to represent rigid body orientation"
+summary: "This post covers singularity-free representations of rigid body orientation."
 date: 2025-01-22
 lastmod: 2025-01-22
 draft: true

@@ -1,6 +1,6 @@
 ---
-title: "Certifying Lyapunov stability and region of attraction using convex optimization"
-summary: "Lyapunov function can be searched using convex optimization for a lot of continuous system"
+title: "Finding Lyapunov function and region of attraction using convex optimization"
+summary: "This post shows how to perform Lyapunov analysis using convex optimization."
 date: 2025-01-24
 lastmod: 2025-01-24
 draft: false
@@ -68,7 +68,7 @@ $$
 V(\bm{x}) = \frac{1}{2} \bm{x}^\top \begin{bmatrix} 1 & 0 \\ 0 & 2 \end{bmatrix} \bm{x} .
 $$
 
-This technique, which involves expressing a function as a quadratic form and ensuring the associated matrix is positive or negative semi-definite, is encapsulated as sum-of-squares (SOS) programming. Hence, we can alternatively solve the following SOS optimization problem:
+This technique, which involves expressing a function as a quadratic form and ensuring the associated matrix is positive semi-definite, is encapsulated as sum-of-squares (SOS) programming. Hence, we can alternatively solve the following SOS optimization problem:
 
 $$
 \begin{align*}
