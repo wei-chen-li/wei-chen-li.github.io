@@ -8,6 +8,23 @@ authors:
   - Wei-Chen Li
 ---
 
+Lyapunov analysis is a method used to evaluate the stability of a dynamical system described by
+
+$$
+\dot{\bm{x}} = f(\bm{x}),
+$$
+
+where $\bm{x} \in \mathbb{R}^n$, and the system has an equilibrium point at $\bm{x} = \bm{0}$. If the equilibrium point is not located at the origin, a change of coordinates can shift it to $\bm{x} = \bm{0}$.
+
+For a region $\mathcal{D}$ surrounding the origin, the system is considered stable in the sense of Lyapunov (i.s.L) if a function $V: \mathbb{R}^n \to \mathbb{R}$ can be found such that:
+
+1. $ V(\bm{x}) > 0 \quad \forall \bm{x} \in \mathcal{D} \setminus \{\bm{0}\}, \quad V(\bm{0}) = 0 $,
+2. $ \dot{V}(\bm{x}) \leq 0 \quad \forall \bm{x} \in \mathcal{D} \setminus \{\bm{0}\}, \quad \dot{V}(\bm{0}) = 0 $.
+
+In this case, \( V(\bm{x}) \) is known as a Lyapunov function. For more details and formal proofs, refer to [[1](#ref1), Ch 4].
+
+
+
 ## Finding Lyapunov function
 
 <div class="rounded-border">
@@ -88,3 +105,8 @@ $$
 
 Solving this SOS program also yields the same Lyapunov function.
 </div>
+
+
+## References
+
+[1]	H. K. Khalil, *Nonlinear Systems*, 3 ed. Pearson, 2001. <a name="ref1"></a>
