@@ -106,6 +106,86 @@ $$
 </a>
 
 Solving this SOS program also yields the same Lyapunov function.
+
+</div>
+
+Notice that in the example above, the system's dynamics are polynomial functions of the states. However, rigid-body dynamics typically involve trigonometric functions. This can be addressed by introducing new variables $s_i = \sin\theta_i$ and $c_i = \cos\theta_i$, along with the constraint $s_i^2 + c_i^2 = 1$.
+This is illustrated in the following example.
+
+<div class="rounded-border">
+
+<b>Example.</b> (Global stability of a pendulum)
+
+<img src="figures/pendulum.svg" alt="Open in Colab" class="figure"/>
+
+Consider the damped pendulum shown in the figure. Its equation of motion is given by
+
+$$
+ml^2 \ddot{\theta} + b \dot{\theta} + mgl \sin\theta = 0 .
+$$
+
+We introduce a coordinate transformation from $\begin{bmatrix} \theta & \dot{\theta} \end{bmatrix}^\top$ to $\bm{z} = \begin{bmatrix} s & c & \dot{\theta} \end{bmatrix}^\top$, where $s = \sin\theta$ and $c = \cos\theta$. In this new coordinate system, the system dynamics become
+
+$$
+\dot{\bm{z}} =
+\begin{bmatrix} c \dot{\theta} \\ -s \dot{\theta} \\ -\frac{g}{l} s - \frac{b}{ml^2} \dot{\theta} \end{bmatrix} .
+$$
+
+To prove the global stability of the system, we parameterize the Lyapunov function as a second-degree polynomial in $\bm{z}$:
+
+$$
+V(\bm{z}) = \alpha_0 + \alpha_1 s + \alpha_2 c + \alpha_3 \dot{\theta} + \alpha_4 s^2 + \dots + \alpha_9 \dot{\theta}^2 .
+$$
+
+Its time derivative is given by
+
+$$
+\dot{V}(\bm{z}) = \frac{\partial V(\bm{z})}{\partial \bm{z}} \dot{\bm{z}} .
+$$
+
+To determine $V(\bm{z})$, we solve the following SOS optimization problem:
+
+$$
+\begin{align*}
+  & \text{find} && \alpha_0, \dots, \alpha_9, \lambda_0, \dots, \lambda_9  \\
+  & \text{subject to} && V(\bm{z})  \text{ is SOS}  \\
+  &                   && -\dot{V}(\bm{z}) + \lambda(\bm{z}) (s^2+c^2-1) \text{ is SOS}  \\
+  &                   && V(\begin{bmatrix} 0 & 1 & 0 \end{bmatrix}^\top) = 0 ,
+\end{align*}
+$$
+
+where $\lambda(\bm{z})$ is a second-degree polynomial of the form:
+
+$$
+\lambda(\bm{z}) = \lambda_0 + \lambda_1 s + \dots + \lambda_9 \dot{\theta}^2 .
+$$
+
+The constraint
+
+$$
+-\dot{V}(\bm{z}) + \lambda(\bm{z}) (s^2 + c^2 - 1) \text{ is SOS}
+$$
+
+ensures that
+
+$$
+-\dot{V}(\bm{z}) \geq -\lambda(\bm{z}) (s^2 + c^2 - 1) ,
+$$
+
+which implies $-\dot{V}(\bm{z}) \geq 0$ whenever $s^2 + c^2 = 1$.
+
+<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/pendulum-global-stability.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+</a>
+
+Solving the SOS program for $m=1$, $l=1$, $g=9.81$, and $b=0$ gives the Lyapunov function:
+
+$$
+V = 0.5 \dot{\theta}^{2} + 4.905 s^2 + 4.905 (1 - c)^2 .
+$$
+
+This turns out to be the total energy of the system.
+
 </div>
 
 
