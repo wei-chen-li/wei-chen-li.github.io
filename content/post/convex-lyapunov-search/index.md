@@ -24,7 +24,6 @@ For a region $\mathcal{D}$ surrounding the origin, the system is considered stab
 In this case, $V(\bm{x})$ is known as a Lyapunov function. For more details and formal proofs, refer to [[1](#ref1), Ch 4].
 
 
-
 ## Finding Lyapunov function
 
 When I first learned about Lyapunov functions, I was told they are notoriously difficult to find—so much so that discovering one could be worthy of publication. Surprisingly, convex optimization offers a practical method for finding Lyapunov functions. The approach involves parameterizing a set of candidate Lyapunov functions and then optimizing these parameters to search within the candidate set. The key advantage is that the optimization problem is convex in the parameter space, allowing for straightforward feasibility results. This is best demonstrated using an example.
@@ -109,14 +108,14 @@ Solving this SOS program also yields the same Lyapunov function.
 
 </div>
 
-Notice that in the example above, the system's dynamics are polynomial functions of the states. However, rigid-body dynamics typically involve trigonometric functions. This can be addressed by introducing new variables $s_i = \sin\theta_i$ and $c_i = \cos\theta_i$, along with the constraint $s_i^2 + c_i^2 = 1$.
-This is illustrated in the following example.
+Notice that in the example above, the system's dynamics are polynomial functions. However, rigid-body dynamics typically involve trigonometric functions. This can be mitigated by introducing new variables $s_i = \sin\theta_i$ and $c_i = \cos\theta_i$, along with the constraint $s_i^2 + c_i^2 = 1$.
+The following example illustrates this approach.
 
 <div class="rounded-border">
 
 <b>Example.</b> (Global stability of a pendulum)
 
-<img src="figures/pendulum.svg" alt="simple pendulum" class="figure"/>
+<img src="figures/pendulum.svg" alt="simple pendulum" class="figure" style="height:12rem; width:auto;"/>
 
 Consider the damped pendulum shown in the figure. Its equation of motion is given by
 
@@ -181,10 +180,44 @@ which implies $-\dot{V}(\bm{z}) \geq 0$ whenever $s^2 + c^2 = 1$.
 Solving the SOS program for $m=1$, $l=1$, $g=9.81$, and $b=0$ gives the Lyapunov function:
 
 $$
-V = 0.5 \dot{\theta}^{2} + 4.905 s^2 + 4.905 (1 - c)^2 .
+\begin{split}
+V &= 0.5 \dot{\theta}^{2} + 4.905 s^2 + 4.905 (1 - c)^2  \\
+  &= 0.5 \dot{\theta}^{2} + 9.81 (1 - c) .
+\end{split}
 $$
 
 This turns out to be the total energy of the system.
+
+</div>
+
+
+## Finding the region of attraction
+
+Sometimes, global stability is too much to ask for. For example, when balancing a robot using a controller, a disturbance that deviates the robot from its equilibrium configuration too much can still cause it to fall. Therefore, we aim to identify the largest region in which the system remains Lyapunov stable.
+
+
+### Known Lyapunov function
+
+<div class="rounded-border">
+
+<b>Example.</b> (Time reversed van der Pol oscillator)
+
+The time reversed van der Pol oscillator is governed by
+
+$$
+\begin{align*}
+  \dot{x}_1 &= -x_2 ,  \\
+  \dot{x}_2 &= x_1 + (x_1^2 - 1) x_2 .
+\end{align*}
+$$
+
+The system has an equilibrium at the origin, and near the origin, the system is governed by
+
+$$
+\begin{bmatrix} \dot{x}_1 \\ \dot{x}_2 \end{bmatrix} =
+\begin{bmatrix} 0 & -1 \\ 1 & -1 \end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} .
+$$
 
 </div>
 
