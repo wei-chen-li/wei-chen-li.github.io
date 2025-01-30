@@ -1,7 +1,7 @@
-/* Tufte CSS style
-   https://github.com/edwardtufte/tufte-css */
-
 @charset "UTF-8";
+
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
 
 @font-face {
     font-family: "et-book";
@@ -371,9 +371,9 @@ label.margin-toggle:not(.sidenote-number) {
 
 @media (max-width: 760px) {
     body {
-        width: 84%;
-        padding-left: 8%;
-        padding-right: 8%;
+        width: 100%;
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
     hr,
@@ -449,11 +449,6 @@ label.margin-toggle:not(.sidenote-number) {
 }
 
 /* Additional website styles */
-
-p {
-    text-align: justify;
-}
-
 #nav-menu .active {
     text-decoration: underline;
 }
@@ -493,7 +488,15 @@ p {
     margin: 0;
 }
 
-.prose {
+.figure {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div.prose {
     max-width: none;
 }
 
