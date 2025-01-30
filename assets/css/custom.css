@@ -484,8 +484,10 @@ label.margin-toggle:not(.sidenote-number) {
     padding: 0 0.8em 0 0.8em;
 }
 
-.no-margin {
+.badge {
     margin: 0;
+    height: 2rem;
+    width: auto;
 }
 
 .figure {
@@ -503,4 +505,18 @@ div.prose {
 .md\:px-12 {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+/* Additional reference styles */
+ol.reference {
+    list-style: none;
+    counter-reset: ref-counter;
+    padding-left: 0;
+}
+ol.reference > li {
+    counter-increment: ref-counter;
+}
+ol.reference > li::before {
+    content: "[" counter(ref-counter) "] ";
+    margin-right: 10px
 }

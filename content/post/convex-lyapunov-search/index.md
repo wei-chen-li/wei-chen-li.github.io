@@ -82,7 +82,7 @@ $$
 $$
 
 <a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
 </a>
 
 Solving this semi-definite program (SDP) yields $p_{11}=1, p_{21}=0, p_{22}=2$. The resulting Lyapunov function is
@@ -102,7 +102,7 @@ $$
 $$
 
 <a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
 </a>
 
 Solving this SOS program also yields the same Lyapunov function.
@@ -116,7 +116,7 @@ This is illustrated in the following example.
 
 <b>Example.</b> (Global stability of a pendulum)
 
-<img src="figures/pendulum.svg" alt="Open in Colab" class="figure"/>
+<img src="figures/pendulum.svg" alt="simple pendulum" class="figure"/>
 
 Consider the damped pendulum shown in the figure. Its equation of motion is given by
 
@@ -175,7 +175,7 @@ $$
 which implies $-\dot{V}(\bm{z}) \geq 0$ whenever $s^2 + c^2 = 1$.
 
 <a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/pendulum-global-stability.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="no-margin"/>
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
 </a>
 
 Solving the SOS program for $m=1$, $l=1$, $g=9.81$, and $b=0$ gives the Lyapunov function:
@@ -191,4 +191,11 @@ This turns out to be the total energy of the system.
 
 ## References
 
-[1]	H. K. Khalil, *Nonlinear Systems*, 3 ed. Pearson, 2001. <a name="ref1"></a>
+<ol class="reference">
+  <li><a name="ref1"></a>
+    H. K. Khalil, <em>Nonlinear Systems</em>, 3 ed. Pearson, 2001.
+  </li>
+  <li><a name="ref2"></a>
+    Russ Tedrake. <em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em>. [Online]. Available: <a href="https://underactuated.csail.mit.edu">https://underactuated.csail.mit.edu</a>
+  </li>
+</ol>
