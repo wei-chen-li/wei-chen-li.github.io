@@ -215,7 +215,7 @@ The system has an equilibrium at the origin, and near the origin, the system is 
 
 $$
 \begin{bmatrix} \dot{x}_1 \\ \dot{x}_2 \end{bmatrix} =
-\begin{bmatrix} 0 & -1 \\ 1 & -1 \end{bmatrix}
+\underbrace{\begin{bmatrix} 0 & -1 \\ 1 & -1 \end{bmatrix}}_{\mathbf{A}}
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} .
 $$
 
@@ -229,6 +229,6 @@ $$
     H. K. Khalil, <em>Nonlinear Systems</em>, 3 ed. Pearson, 2001.
   </li>
   <li><a name="ref2"></a>
-    Russ Tedrake. <em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em>. [Online]. Available: <a href="https://underactuated.csail.mit.edu">https://underactuated.csail.mit.edu</a>
+    Russ Tedrake. <a href="https://underactuated.csail.mit.edu" target="_blank"><em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em></a>, 2025.
   </li>
 </ol>
