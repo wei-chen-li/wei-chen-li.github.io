@@ -195,14 +195,110 @@ This turns out to be the total energy of the system.
 
 Sometimes, global stability is too much to ask for. For example, when balancing a robot using a controller, a disturbance that deviates the robot from its equilibrium configuration too much can still cause it to fall. Therefore, we aim to identify the largest region in which the system remains Lyapunov stable.
 
+For a given dynamical system
+
+$$
+\dot{\bm{x}} = f(\bm{x}),
+$$
+
+where $f$ is continuous. If there exists a scalar function $V(\bm{x})$ such that
+
+$$
+V(\bm{x}) > 0 \quad \forall \bm{x} \neq \bm{0}, \quad V(\bm{0}) = 0,
+$$
+
+then a bounded sublevel set
+
+$$
+\mathcal{G} = \bigl\{ \bm{x} \mid V(\bm{x}) \leq \rho \bigr\}
+$$
+
+defines a region of attraction (ROA), provided that
+
+$$
+\dot{V}(\bm{x}) \leq 0 \quad \forall \bm{x} \in \mathcal{G}.
+$$
+
 
 ### Known Lyapunov function
 
+In this section, we assume that the Lyapunov function is known exactly. This assumption is not overly restrictive, as several methods provide explicit Lyapunov functions. For example, in a closed-loop system with an LQR controller, the cost-to-go function serves as a Lyapunov function. Alternatively, we can linearize a system at its equilibrium point, yielding the linearized system matrix $\mathbf{A}$. The solution $\mathbf{P}$ to the Lyapunov equation
+
+$$
+\mathbf{A}^\top \mathbf{P} + \mathbf{P} \mathbf{A} = -\mathbf{Q}
+$$
+
+where $\mathbf{Q} \succ 0$, provides a quadratic Lyapunov function of the form
+
+$$
+V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}.
+$$
+
+Nonetheless, we will later relax this requirement.
+
+**Formulation 1**
+
+To determine the ROA, we can formulate the following optimization problem:
+
+$$
+\begin{align*}
+  & \text{maximize}   && \rho  \\
+  & \text{subject to} && -\dot{V}(\bm{x}) + \lambda(\bm{x}) (V(\bm{x}) - \rho) \text{ is SOS}  \\
+  &                   && \lambda(\bm{x}) \text{ is SOS}.
+\end{align*}
+$$
+
+In this formulation, $V(\bm{x})$ and $\dot{V}(\bm{x})$ are known and fixed, while the decision variables are $\rho$ and the coefficients of the polynomial $\lambda(\bm{x})$. The first SOS constraint ensures that
+
+$$
+\dot{V}(\bm{x}) \leq \lambda(\bm{x}) (V(\bm{x}) - \rho) ,
+$$
+
+which implies $\dot{V}(\bm{x}) \leq 0$ for all $\bm{x}$ satisfying $V(\bm{x}) \leq \rho$. However, this optimization problem is not convex, as it involves bilinear terms in the decision variables.
+
+**Formulation 2**
+
+An alternative formulation of the optimization problem is
+
+$$
+\begin{align*}
+  & \text{maximize}   && \rho  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho) - \lambda(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS}  \\
+  &                   && \lambda(\bm{x}) \text{ is SOS} ,
+\end{align*}
+$$
+
+where $d$ is a fixed positive integer.
+The first SOS constraint ensures that
+
+$$
+\lambda(\bm{x}) \dot{V}(\bm{x}) \leq (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho) ,
+$$
+
+which implies $\dot{V}(\bm{x}) \leq 0$ for all $\bm{x}$ satisfying $V(\bm{x}) \leq \rho$.
+Unlike the previous formulation, this optimization problem is convex and can be solved efficiently to determine the ROA, given by $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
+
+**Formulation 3**
+
+We claim that the SOS constraint on $\lambda(\bm{x})$ is unnecessary, leading to the simplified optimization problem:
+
+$$
+\begin{align*}
+  & \text{maximize}   && \rho  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho) + \lambda(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS} .
+\end{align*}
+$$
+
+Why is this possible? First, note that $\dot{V}(\bm{x}) < 0$ in the vicinity of the origin, except at the origin itself.
+Additionally, observe that whenever $\dot{V}(\bm{x}) = 0$, we have $V(\bm{x}) - \rho \geq 0$. Since $\dot{V}(\bm{x})$ is continuous, it follows that $\dot{V}(\bm{x}) < 0$ for all $\bm{x}$ satisfying $V(\bm{x}) - \rho < 0$, except at the origin.
+
+The following example shows how this formulation can be used to find the ROA.
+
 <div class="rounded-border">
 
-<b>Example.</b> (Time reversed van der Pol oscillator)
+<b>Example.</b> (Time-reversed van der Pol oscillator)
 
-The time reversed van der Pol oscillator is governed by
+The time-reversed van der Pol oscillator is governed by
 
 $$
 \begin{align*}
@@ -211,15 +307,45 @@ $$
 \end{align*}
 $$
 
-The system has an equilibrium at the origin, and near the origin, the system is governed by
+The phase portrait of the system is shown in the figure below.
+
+<img src="figures/van-der-pol-phase-portrait.svg" alt="phase portrait of the time-reversed van der Pol oscillator" class="figure" style="width:25rem; height:auto;"/>
+
+The system has an equilibrium at the origin and a ROA highlighted in red. Near the origin, the linearized system is
 
 $$
 \begin{bmatrix} \dot{x}_1 \\ \dot{x}_2 \end{bmatrix} =
-\begin{bmatrix} 0 & -1 \\ 1 & -1 \end{bmatrix}
+\underbrace{\begin{bmatrix} 0 & -1 \\ 1 & -1 \end{bmatrix}}_{\mathbf{A}}
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} .
 $$
 
+Solving the Lyapunov equation $\mathbf{A}^\top \mathbf{P} + \mathbf{P} \mathbf{A} = -\mathbf{I}$ gives us a Lyapunov function $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$.
+
+Solving the SOS optimization problem
+
+$$
+\begin{align*}
+  & \text{maximize}   && \rho  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho) + \lambda(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS} ,
+\end{align*}
+$$
+
+gives the ROA: $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
+
+<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/van-der-pol.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
+</a>
+
+<br>
+
+<img src="figures/van-der-pol-contour.svg" alt="quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="figure" style="width:25rem; height:auto;"/>
+
+The solved ROA (highlighted in green) is a subset of the true ROA (highlighted in red).
+
 </div>
+
+
+### Searching for both Lyapunov function and ROA
 
 
 ## References
@@ -229,6 +355,6 @@ $$
     H. K. Khalil, <em>Nonlinear Systems</em>, 3 ed. Pearson, 2001.
   </li>
   <li><a name="ref2"></a>
-    Russ Tedrake. <em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em>. [Online]. Available: <a href="https://underactuated.csail.mit.edu">https://underactuated.csail.mit.edu</a>
+    Russ Tedrake. <a href="https://underactuated.csail.mit.edu" target="_blank"><em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em></a>, 2025.
   </li>
 </ol>
