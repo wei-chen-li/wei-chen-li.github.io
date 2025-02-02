@@ -1,6 +1,6 @@
 ---
 title: "Finding Lyapunov function and region of attraction using convex optimization"
-summary: "This post shows how to utilize convex optimization to find Lyapunov function to prove global or local stability."
+summary: "This post shows how to utilize sum-of-squares optimization to find Lyapunov function to prove global or local stability."
 date: 2025-01-24
 lastmod: 2025-01-24
 draft: false
@@ -159,13 +159,7 @@ $$
 \lambda(\bm{z}) = \lambda_0 + \lambda_1 s + \dots + \lambda_9 \dot{\theta}^2 .
 $$
 
-The constraint
-
-$$
--\dot{V}(\bm{z}) + \lambda(\bm{z}) (s^2 + c^2 - 1) \text{ is SOS}
-$$
-
-ensures that
+The second SOS constraint ensures that
 
 $$
 -\dot{V}(\bm{z}) \geq -\lambda(\bm{z}) (s^2 + c^2 - 1) ,
@@ -221,8 +215,9 @@ $$
 
 
 ### Known Lyapunov function
+<a name="sec:roa-with-known-lyapunov"></a>
 
-In this section, we assume that the Lyapunov function is known exactly. This assumption is not overly restrictive, as several methods provide explicit Lyapunov functions. For example, in a closed-loop system with an LQR controller, the cost-to-go function serves as a Lyapunov function. Alternatively, we can linearize a system at its equilibrium point, yielding the linearized system matrix $\mathbf{A}$. The solution $\mathbf{P}$ to the Lyapunov equation
+In this section, we assume that the Lyapunov function is known exactly. This is not necessarily a bad assumption, as several methods provide explicit Lyapunov functions. For example, in a closed-loop system with an LQR controller, the cost-to-go function serves as a Lyapunov function. Alternatively, we can linearize a system at its equilibrium point, yielding the linearized system matrix $\mathbf{A}$. The solution $\mathbf{P}$ to the Lyapunov equation
 
 $$
 \mathbf{A}^\top \mathbf{P} + \mathbf{P} \mathbf{A} = -\mathbf{Q}
@@ -296,6 +291,7 @@ The following example shows how this formulation can be used to find the ROA.
 
 <div class="rounded-border">
 
+<a name="ex:van-der-pol"></a>
 <b>Example.</b> (Time-reversed van der Pol oscillator)
 
 The time-reversed van der Pol oscillator is governed by
@@ -319,7 +315,7 @@ $$
 \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} .
 $$
 
-Solving the Lyapunov equation $\mathbf{A}^\top \mathbf{P} + \mathbf{P} \mathbf{A} = -\mathbf{I}$ gives us a Lyapunov function $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$.
+Solving the Lyapunov equation $\mathbf{A}^\top \mathbf{P} + \mathbf{P} \mathbf{A} = -\mathrm{diag}(\begin{bmatrix} 1 & 2 \end{bmatrix})$ gives us a Lyapunov function $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$.
 
 Solving the SOS optimization problem
 
@@ -340,12 +336,120 @@ gives the ROA: $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
 
 <img src="figures/van-der-pol-contour.svg" alt="quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="figure" style="width:25rem; height:auto;"/>
 
-The solved ROA (highlighted in green) is a subset of the true ROA (highlighted in red).
+The solved ROA (highlighted in yellow) is a subset of the true ROA (highlighted in red). We can clearly see in the figure that for all $\bm{x}$ satisfying $\dot{V}(\bm{x}) = 0$, $V(\bm{x}) \geq \rho$.
 
 </div>
 
 
 ### Searching for both Lyapunov function and ROA
+
+The [previous section](#known-lyapunov-function) assumes that the Lyapunov function is known exactly. Is this section, we relax this requirement and simultaneously search for both the Lyapunov function and the ROA.
+
+We formulate the following optimization problem:
+
+$$
+\begin{align*}
+  & \text{maximize}   && \mathrm{vol}(\{ \bm{x} \mid V(\bm{x}) \leq \rho \})  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho) + \lambda(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS}  \\
+  &                   && V(\bm{x}) \text{ is SOS} ,
+\end{align*}
+$$
+
+Here, we maximize the volume of the sublevel set. The decision variables in this optimization problem are $\rho$, the coefficients of $\lambda(\bm{x})$, and the coefficients of $V(\bm{x})$, which also determine $\dot{V}(\bm{x})$.  However, this optimization problem is not convex due to the presence of bilinear terms in the decision variables.
+
+To address this, we employ [coordinate decent](https://wikipedia.org/wiki/Coordinate_descent).  We partition the decision variables into two coordinate blocks:
+- $\rho$ and the coefficients of $\lambda(\bm{x})$ in one block,
+-  coefficients of $V(\bm{x})$ in the other block.
+
+At iteration $(k+1)$, the algorithm proceeds as follows:
+
+1. **Update $\rho^{(k+1)}$ and $\lambda^{(k+1)}(\bm{x})$**\
+Solve following SOS optimization problem:
+
+$$
+\begin{align*}
+  & \text{maximize}   && \rho  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V^{(k)}(\bm{x}) - \rho) + \lambda(\bm{x}) \dot{V}^{(k)}(\bm{x}) \text{ is SOS} .
+\end{align*}
+$$
+
+2. **Update $V^{(k+1)}(\bm{x})$**\
+Solve the following optimization problem:
+
+$$
+\begin{align*}
+  & \text{maximize}   && \mathrm{vol}(\{ \bm{x} \mid V(\bm{x}) \leq \rho^{(k+1)} \})  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - \rho^{(k+1)}) + \lambda^{(k+1)}(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS}  \\
+  &                   && V(\bm{x}) \text{ is SOS} .
+\end{align*}
+$$
+
+This optimization problem is usually non-convex in the objective. Fortunately, in coordinate decent, a sufficient decent in each coordinate direction is enough to guarantee convergence. Therefore, suppose $V^{(k)}(\bm{x}) = \bm{x}^\top \mathbf{P}^{(k)} \bm{x}$, what we usually do in step 2 of the algorithms is to first assign
+
+$$
+\mathbf{P}^{(k+\tfrac{1}{2})} = \frac{1}{\rho^{(k+1)}} \mathbf{P}^{(k)} .
+$$
+
+Next, we solve for $\mathbf{P}^{(k+1)}$ using
+
+$$
+\begin{align*}
+  & \text{maximize}   && (\det\mathbf{P}^{(k+\frac{1}{2})})^{-\frac{1}{2}} - \tfrac{1}{2} (\det\mathbf{P}^{(k+\frac{1}{2})})^{-\frac{1}{2}} \mathrm{Tr}\bigl( (\mathbf{P}^{(k+\frac{1}{2})})^{-1} (\mathbf{P} - \mathbf{P}^{(k+\frac{1}{2})}) \bigr)  \\
+  & \text{subject to} && (\bm{x}^\top \bm{x})^d (V(\bm{x}) - 1) + \lambda^{(k+1)}(\bm{x}) \dot{V}(\bm{x}) \text{ is SOS}  \\
+  &                   && V(\bm{x}) \text{ is SOS}  \\
+  &                   && V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x} .
+\end{align*}
+$$
+
+Here, the objective is the linearization of $(\det\mathbf{P})^{-\frac{1}{2}}$ at $\mathbf{P} = \mathbf{P}^{(k+\frac{1}{2})}$ [[2](#ref2), Eq. 42], which is proportional to the volume of $\{ \bm{x} \mid V(\bm{x}) \leq 1 \}$.
+
+<!-- Finally, we perform an [Armijo line search](https://wikipedia.org/wiki/Backtracking_line_search) to ensure sufficient decent. Given a parameter $\alpha \in (0,1)$, we start with $t=1$ and iteratively update
+
+$$
+t \gets 0.5 t , \qquad
+\mathbf{P}^{(k+1)} = \mathbf{P}^{(k+\tfrac{1}{3})} + t (\mathbf{P}^{(k+\tfrac{2}{3})} - \mathbf{P}^{(k+\tfrac{1}{3})}) ,
+$$
+
+until the following condition is met:
+
+$$
+\begin{split}
+(\det\mathbf{P}^{(k+1)})^{-\frac{1}{2}} &< (\det\mathbf{P}^{(k+\tfrac{1}{3})})^{-\frac{1}{2}} \\ &\qquad - \alpha \tfrac{1}{2} (\det\mathbf{P}^{(k+\frac{1}{3})})^{-\frac{1}{2}} \mathrm{Tr}\bigl( (\mathbf{P}^{(k+\frac{1}{3})})^{-1} (\mathbf{P}^{(k+1)} - \mathbf{P}^{(k+\frac{1}{3})}) \bigr) .
+\end{split}
+$$ -->
+
+This approach can be readily extended to other forms of $V(\bm{x})$ beyond the quadratic form $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$ by selecting an alternative volume metric in place of $(\det\mathbf{P})^{-\frac{1}{2}}$.
+
+
+<div class="rounded-border">
+
+<a name="ex:van-der-pol-revisited"></a>
+<b>Example.</b> (Time-reversed van der Pol oscillator revisited)
+
+The time-reversed van der Pol oscillator is governed by
+
+$$
+\begin{align*}
+  \dot{x}_1 &= -x_2 ,  \\
+  \dot{x}_2 &= x_1 + (x_1^2 - 1) x_2 .
+\end{align*}
+$$
+
+We apply the described method above to find a quadratic Lyapunov function of the form $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$ and determine the ROA.
+
+<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/van-der-pol-lyapunov-search.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
+</a>
+
+<br>
+
+<img src="figures/van-der-pol-quadratic-roa.svg" alt="best quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="figure" style="width:20rem; height:auto;"/>
+
+The green region represents the computed ROA, while the yellow region corresponds to the solution from the [previous example](#ex:van-der-pol). By allowing the Lyapunov function to vary, we obtain a larger ROA compared to the fixed Lyapunov function approach.
+
+Can we get a better approximation?
+
+</div>
 
 
 ## References
@@ -355,6 +459,9 @@ The solved ROA (highlighted in green) is a subset of the true ROA (highlighted i
     H. K. Khalil, <em>Nonlinear Systems</em>, 3 ed. Pearson, 2001.
   </li>
   <li><a name="ref2"></a>
-    Russ Tedrake. <a href="https://underactuated.csail.mit.edu" target="_blank"><em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em></a>, 2025.
+    K. B. Petersen and M. S. Pedersen. <a href="http://www2.compute.dtu.dk/pubdb/edoc/imm3274.pdf" target="_blank"><em>The Matrix Cookbook</em></a>, Technical University of Denmark, 2012.
+  </li>
+  <li><a name="ref3"></a>
+    R. Tedrake. <a href="https://underactuated.csail.mit.edu" target="_blank"><em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em></a>, 2025.
   </li>
 </ol>
