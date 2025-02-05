@@ -5,7 +5,7 @@ authors:
 - Chun-Yeon Lin
 date: 2025-07-14
 publishDate: 2025-01-14
-doi: "10.36227/techrxiv.173808340.06588157"
+doi: "10.36227/techrxiv.173808340.06588157/v1"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
