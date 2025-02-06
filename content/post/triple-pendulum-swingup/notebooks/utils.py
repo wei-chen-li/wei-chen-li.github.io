@@ -1,16 +1,3 @@
-import numpy as np
-from matplotlib.colors import LinearSegmentedColormap
-from pydrake.all import (
-    AddMultibodyPlantSceneGraph,
-    Diagram,
-    DiagramBuilder,
-    LeafSystem,
-    Linearize,
-    MultibodyPlant,
-    LinearQuadraticRegulator,
-    Parser,
-)
-
 def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
     """A system representing a cart with serial connected pendulum bars
 
@@ -25,6 +12,12 @@ def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
                  get_output_port(0) is the state of the system, length==2*(N+1) where N is the number of pendulums
                  get_output_port(1) is the query output port of the scene graph
     """
+    from pydrake.all import (
+        AddMultibodyPlantSceneGraph,
+        DiagramBuilder,
+        Parser,
+    )
+
     kwargs['m1'] = m1
     kwargs['l1'] = l1
     sdf_string, num_pendulums = _CartMultiPendulumSdf(m_cart, **kwargs)
@@ -46,95 +39,9 @@ def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
     return cart_multi_pendulum
 
 
-def CartMultiPendulumEquilibriumState(configuration: list[str]):
-    """The equilibrium state of a cart_multi_pendulum at the configuration
-
-    Args:
-        configuration: e.g, ['up', 'down', ...]
-
-    Returns:
-        np.ndarray: the equilibrium state, length == 2*(len(configuration)+1)
-    """
-    x0_w = [0]
-    for c in configuration:
-        if c == 'down':
-            x0_w += [0]
-        elif c == 'up':
-            x0_w += [np.pi]
-        else:
-            raise RuntimeError(f"Unknown configuration '{c}'")
-    x0_w += [0] * (1 + len(configuration))
-    T_j2w = _CartMultiPendulumJoint2World(len(x0_w))
-    x0_j = np.linalg.inv(T_j2w) @ np.array(x0_w)
-    return x0_j
-
-
-class CartMultiPendulumStabilizingController(LeafSystem):
-    def __init__(self, cart_multi_pendulum: Diagram, configuration: list[str], Q, R):
-        """A linaer system of the cart_multi_pendulum at the configuration
-
-        Args:
-            cart_multi_pendulum: system returned by `CartMultiPendulumSystem`
-            configuration: e.g, ['up', 'down', ...]
-            Q: LQR Q matrix
-            R: LQR R matrix
-        """
-        LeafSystem.__init__(self)
-        num_states = cart_multi_pendulum.num_continuous_states()
-        num_pendulums = (num_states // 2) - 1
-        if num_pendulums != len(configuration):
-            raise RuntimeError(f"Number of configurations shold be {num_pendulums}, but got {len(configuration)}")
-
-        x0 = CartMultiPendulumEquilibriumState(configuration)
-        u0 = np.zeros(1)
-
-        T_j2w = _CartMultiPendulumJoint2World(num_states)
-        Q = T_j2w.transpose() @ Q @ T_j2w
-
-        context = cart_multi_pendulum.CreateDefaultContext()
-        cart_multi_pendulum.GetMutableSubsystemState(cart_multi_pendulum.GetSubsystemByName('plant'), context).get_mutable_continuous_state().SetFromVector(x0)
-        cart_multi_pendulum.get_input_port(0).FixValue(context, u0)
-
-        linear_plant = Linearize(cart_multi_pendulum, context)
-        A = linear_plant.A()
-        B = linear_plant.B()
-
-        K, _ = LinearQuadraticRegulator(A, B, Q, R)
-
-        self.K, self.x0, self.u0 = K, x0, u0
-        self.DeclareVectorInputPort("x", num_states)
-        self.DeclareVectorOutputPort("f_cart", 1, self.DoCalcOutput)
-
-    def DoCalcOutput(self, context, output):
-        num_states = len(self.x0)
-        x = self.get_input_port().Eval(context)
-        delta_x = x - self.x0
-        delta_x[1:num_states//2] = self.wrap_to_pi(delta_x[1:num_states//2])
-        u = self.u0 - self.K @ delta_x
-        output.SetFromVector(u)
-
-    @staticmethod
-    def wrap_to_pi(angle):
-        return (angle + np.pi) % (2 * np.pi) - np.pi
-
-
-def _CartMultiPendulumJoint2World(num_states: int):
-    """Matrix that transforms joint coordinates to world coordinates
-
-    Args:
-        num_states: equals (num_pendulums+1)*2
-    """
-    assert(num_states % 2 == 0)
-    num_pendulums = num_states // 2 - 1
-    T = np.block([[np.array([1]), np.zeros((1,num_pendulums))],
-                  [np.zeros((num_pendulums,1)), np.tri(num_pendulums)]])
-    zero = np.zeros(T.shape)
-    T = np.block([[T, zero],
-                  [zero, T]])
-    return T
-
-
 def _CartMultiPendulumSdf(m_cart, **kwargs):
+    from matplotlib.colors import LinearSegmentedColormap
+
     num_pendulums = 0
     while len(kwargs) != num_pendulums * 2:
         num_pendulums += 1
