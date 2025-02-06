@@ -27,7 +27,7 @@ def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
     """
     kwargs['m1'] = m1
     kwargs['l1'] = l1
-    sdf_string = _CartMultiPendulumSdf(m_cart, **kwargs)
+    sdf_string, num_pendulums = _CartMultiPendulumSdf(m_cart, **kwargs)
 
     builder = DiagramBuilder()
     plant, scene_graph = AddMultibodyPlantSceneGraph(builder, time_step=0.0)
@@ -39,6 +39,10 @@ def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
     builder.ExportOutput(scene_graph.get_query_output_port(), "query")
 
     cart_multi_pendulum = builder.Build()
+
+    numerals = {1:'Single', 2:'Double', 3:'Triple', 4:'Quadruple', 5: 'Quintuple', 6: 'Sextuple'}
+    plant.set_name(f"Cart{numerals[num_pendulums]}Pendulum" if num_pendulums in numerals else f"Cart{num_pendulums}Pendulum")
+
     return cart_multi_pendulum
 
 
@@ -280,4 +284,4 @@ def _CartMultiPendulumSdf(m_cart, **kwargs):
         </model>
     </sdf>
     """
-    return sdf_string
+    return sdf_string, num_pendulums
