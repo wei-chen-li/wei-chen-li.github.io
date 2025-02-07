@@ -34,7 +34,8 @@ def CartMultiPendulumSystem(m_cart=1, m1=1, l1=1, **kwargs):
     cart_multi_pendulum = builder.Build()
 
     numerals = {1:'Single', 2:'Double', 3:'Triple', 4:'Quadruple', 5: 'Quintuple', 6: 'Sextuple'}
-    plant.set_name(f"Cart{numerals[num_pendulums]}Pendulum" if num_pendulums in numerals else f"Cart{num_pendulums}Pendulum")
+    cart_multi_pendulum.set_name(f"Cart{numerals[num_pendulums]}Pendulum" if num_pendulums in numerals else f"Cart{num_pendulums}Pendulum")
+    cart_multi_pendulum.num_pendulums = num_pendulums
 
     return cart_multi_pendulum
 
