@@ -13,4 +13,4 @@ authors:
 
 <br>
 
-<video controls width="400px" class="media"><source src="videos/triple-pendulum.mp4" type="video/mp4"></video>
+{{< media src="videos/triple-pendulum.mp4" width="400px" >}}

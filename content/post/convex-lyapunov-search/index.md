@@ -111,7 +111,7 @@ The following example illustrates this approach.
 
 <b>Example.</b> (Global stability of a pendulum)
 
-<img src="figures/pendulum.svg" alt="simple pendulum" class="media" style="height:12rem; width:auto;"/>
+{{< media src="figures/pendulum.svg" width="10rem" >}}
 
 Consider the damped pendulum shown in the figure. Its equation of motion is given by
 
@@ -298,7 +298,7 @@ $$
 
 The phase portrait of the system is shown in the figure below.
 
-<img src="figures/van-der-pol-phase-portrait.svg" alt="phase portrait of the time-reversed van der Pol oscillator" class="media" style="width:25rem; height:auto;"/>
+{{< media src="figures/van-der-pol-phase-portrait.svg" width="25rem" >}}
 
 The system has an equilibrium at the origin and a ROA highlighted in red. Near the origin, the linearized system is
 
@@ -325,7 +325,7 @@ gives the ROA: $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
 
 <br>
 
-<img src="figures/van-der-pol-contour.svg" alt="quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="media" style="width:25rem; height:auto;"/>
+{{< media src="figures/van-der-pol-contour.svg" width="25rem" >}}
 
 The solved ROA (highlighted in yellow) is a subset of the true ROA (highlighted in red). We can clearly see in the figure that for all $\bm{x}$ satisfying $\dot{V}(\bm{x}) = 0$, $V(\bm{x}) \geq \rho$.
 
@@ -431,7 +431,7 @@ We apply the described method above to find a quadratic Lyapunov function of the
 
 <br>
 
-<img src="figures/van-der-pol-quadratic-roa.svg" alt="best quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="media" style="width:20rem; height:auto;"/>
+{{< media src="figures/van-der-pol-quadratic-roa.svg" width="20rem" >}}
 
 The green region represents the computed ROA, while the yellow region corresponds to the solution from the [previous example](#ex:van-der-pol). By allowing the Lyapunov function to vary, we obtain a larger ROA compared to the fixed Lyapunov function approach.
 
@@ -448,6 +448,6 @@ Can we get a better approximation?
 
 "K. B. Petersen and M. S. Pedersen. [*The Matrix Cookbook*](http://www2.compute.dtu.dk/pubdb/edoc/imm3274.pdf), Technical University of Denmark, 2012."
 
-  "R. Tedrake. [*Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation*](https://underactuated.csail.mit.edu), 2025."
+"R. Tedrake. [*Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation*](https://underactuated.csail.mit.edu), 2025."
 
 >}}

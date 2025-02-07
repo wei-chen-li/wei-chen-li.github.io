@@ -1,0 +1,13 @@
+{{- $src := .Get "src" -}}
+{{- $width := .Get "width" | default "auto" -}}
+{{- $height := .Get "height" | default "auto" -}}
+
+{{- $ext := lower (path.Ext $src) -}}
+
+{{- if in (slice ".mp4" ".webm" ".ogg") $ext -}}
+    <video src="{{ $src }}" style="display:block; margin:0; margin-left:auto; margin-right:auto; width:{{ $width }}; height:{{ $height }};" controls>
+        Your browser does not support the video tag.
+    </video>
+{{- else -}}
+    <img src="{{ $src }}" style="display:block; margin:0; margin-left:auto; margin-right:auto; width:{{ $width }}; height:{{ $height }};" />
+{{- end -}}
