@@ -473,16 +473,17 @@ label.margin-toggle:not(.sidenote-number) {
 }
 
 .pub-group > div:nth-of-type(3) .hb-attachment-link {
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
+    --tw-space-x-reverse: 0.3333;
 }
 
 /* Additional post styles */
-div.prose {
-    max-width: none;
-}
-
-.md\:px-12 {
+article > main.md\:px-12 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+article > main div.prose {
+    max-width: none;
+}
+
+
