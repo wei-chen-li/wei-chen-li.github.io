@@ -1,0 +1,23 @@
+<style>
+    ol.reference {
+        list-style: none;
+        counter-reset: ref-counter;
+        padding-left: 0;
+    }
+    ol.reference > li {
+        counter-increment: ref-counter;
+    }
+    ol.reference > li::before {
+        content: "[" counter(ref-counter) "] ";
+        margin-right: 10px;
+    }
+</style>
+
+<ol class="reference">
+    {{ range $index, $ref := .Params }}
+    <li>
+        <a name="ref{{ add $index 1 }}"></a>
+        {{ $ref | markdownify }}
+    </li>
+    {{ end }}
+</ol>

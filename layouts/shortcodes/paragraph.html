@@ -1,0 +1,10 @@
+{{- $name := .Get "name" -}}
+
+<div style="border: 1px solid; border-radius: 20px; padding: 0 0.8em 0 0.8em;">
+
+    {{- if $name -}}
+        <a name="{{ $name }}"></a>
+    {{- end -}}
+    {{ .Inner | markdownify }}
+
+</div>

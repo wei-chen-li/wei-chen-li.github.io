@@ -28,7 +28,7 @@ In this case, $V(\bm{x})$ is known as a Lyapunov function. For more details and 
 
 When I first learned about Lyapunov functions, I was told they are notoriously difficult to find—so much so that discovering one could be worthy of publication. Surprisingly, convex optimization offers a practical method for finding Lyapunov functions. The approach involves parameterizing a set of candidate Lyapunov functions and then optimizing these parameters to search within the candidate set. The key advantage is that the optimization problem is convex in the parameter space, allowing for straightforward feasibility results. This is best demonstrated using an example.
 
-<div class="rounded-border">
+{{< paragraph name="ex:simple-nonlinear-system" >}}
 
 <b>Example.</b> Consider the nonlinear system:
 
@@ -102,12 +102,12 @@ $$
 
 Solving this SOS program also yields the same Lyapunov function.
 
-</div>
+{{< /paragraph >}}
 
 Notice that in the example above, the system's dynamics are polynomial functions. However, rigid-body dynamics typically involve trigonometric functions. This can be mitigated by introducing new variables $s_i = \sin\theta_i$ and $c_i = \cos\theta_i$, along with the constraint $s_i^2 + c_i^2 = 1$.
 The following example illustrates this approach.
 
-<div class="rounded-border">
+{{< paragraph name="ex:pendulum-global-stability" >}}
 
 <b>Example.</b> (Global stability of a pendulum)
 
@@ -176,7 +176,7 @@ $$
 
 This turns out to be the total energy of the system.
 
-</div>
+{{< /paragraph >}}
 
 
 ## Finding the region of attraction
@@ -283,9 +283,8 @@ Additionally, observe that whenever $\dot{V}(\bm{x}) = 0$, we have $V(\bm{x}) - 
 
 The following example shows how this formulation can be used to find the ROA.
 
-<div class="rounded-border">
+{{< paragraph name="ex:van-der-pol" >}}
 
-<a name="ex:van-der-pol"></a>
 <b>Example.</b> (Time-reversed van der Pol oscillator)
 
 The time-reversed van der Pol oscillator is governed by
@@ -330,7 +329,7 @@ gives the ROA: $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
 
 The solved ROA (highlighted in yellow) is a subset of the true ROA (highlighted in red). We can clearly see in the figure that for all $\bm{x}$ satisfying $\dot{V}(\bm{x}) = 0$, $V(\bm{x}) \geq \rho$.
 
-</div>
+{{< /paragraph >}}
 
 
 ### Searching for both Lyapunov function and ROA
@@ -413,9 +412,8 @@ $$ -->
 This approach can be readily extended to other forms of $V(\bm{x})$ beyond the quadratic form $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$ by selecting an alternative volume metric in place of $(\det\mathbf{P})^{-\frac{1}{2}}$.
 
 
-<div class="rounded-border">
+{{< paragraph name="ex:van-der-pol-revisited" >}}
 
-<a name="ex:van-der-pol-revisited"></a>
 <b>Example.</b> (Time-reversed van der Pol oscillator revisited)
 
 The time-reversed van der Pol oscillator is governed by
@@ -439,19 +437,17 @@ The green region represents the computed ROA, while the yellow region correspond
 
 Can we get a better approximation?
 
-</div>
+{{< /paragraph >}}
 
 
 ## References
 
-<ol class="reference">
-  <li><a name="ref1"></a>
-    H. K. Khalil, <em>Nonlinear Systems</em>, 3 ed. Pearson, 2001.
-  </li>
-  <li><a name="ref2"></a>
-    K. B. Petersen and M. S. Pedersen. <a href="http://www2.compute.dtu.dk/pubdb/edoc/imm3274.pdf" target="_blank"><em>The Matrix Cookbook</em></a>, Technical University of Denmark, 2012.
-  </li>
-  <li><a name="ref3"></a>
-    R. Tedrake. <a href="https://underactuated.csail.mit.edu" target="_blank"><em>Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation</em></a>, 2025.
-  </li>
-</ol>
+{{< references
+
+"H. K. Khalil, *Nonlinear Systems*, 3 ed. Pearson, 2001."
+
+"K. B. Petersen and M. S. Pedersen. [*The Matrix Cookbook*](http://www2.compute.dtu.dk/pubdb/edoc/imm3274.pdf), Technical University of Denmark, 2012."
+
+  "R. Tedrake. [*Underactuated Robotics: Algorithms for Walking, Running, Swimming, Flying, and Manipulation*](https://underactuated.csail.mit.edu), 2025."
+
+>}}
