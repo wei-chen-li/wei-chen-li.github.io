@@ -80,9 +80,7 @@ $$
 \end{align*}
 $$
 
-<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
-</a>
+{{< colab "simple-nonlinear-system.ipynb" >}}
 
 Solving this semi-definite program (SDP) yields $p_{11}=1, p_{21}=0, p_{22}=2$. The resulting Lyapunov function is
 
@@ -100,9 +98,7 @@ $$
 \end{align*}
 $$
 
-<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/simple-nonlinear-system.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
-</a>
+{{< colab "simple-nonlinear-system.ipynb" >}}
 
 Solving this SOS program also yields the same Lyapunov function.
 
@@ -115,7 +111,7 @@ The following example illustrates this approach.
 
 <b>Example.</b> (Global stability of a pendulum)
 
-<img src="figures/pendulum.svg" alt="simple pendulum" class="figure" style="height:12rem; width:auto;"/>
+<img src="figures/pendulum.svg" alt="simple pendulum" class="media" style="height:12rem; width:auto;"/>
 
 Consider the damped pendulum shown in the figure. Its equation of motion is given by
 
@@ -167,9 +163,7 @@ $$
 
 which implies $-\dot{V}(\bm{z}) \geq 0$ whenever $s^2 + c^2 = 1$.
 
-<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/pendulum-global-stability.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
-</a>
+{{< colab "pendulum-global-stability.ipynb" >}}
 
 Solving the SOS program for $m=1$, $l=1$, $g=9.81$, and $b=0$ gives the Lyapunov function:
 
@@ -305,7 +299,7 @@ $$
 
 The phase portrait of the system is shown in the figure below.
 
-<img src="figures/van-der-pol-phase-portrait.svg" alt="phase portrait of the time-reversed van der Pol oscillator" class="figure" style="width:25rem; height:auto;"/>
+<img src="figures/van-der-pol-phase-portrait.svg" alt="phase portrait of the time-reversed van der Pol oscillator" class="media" style="width:25rem; height:auto;"/>
 
 The system has an equilibrium at the origin and a ROA highlighted in red. Near the origin, the linearized system is
 
@@ -328,13 +322,11 @@ $$
 
 gives the ROA: $\{ \bm{x} \mid V(\bm{x}) \leq \rho \}$.
 
-<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/van-der-pol.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
-</a>
+{{< colab "van-der-pol.ipynb" >}}
 
 <br>
 
-<img src="figures/van-der-pol-contour.svg" alt="quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="figure" style="width:25rem; height:auto;"/>
+<img src="figures/van-der-pol-contour.svg" alt="quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="media" style="width:25rem; height:auto;"/>
 
 The solved ROA (highlighted in yellow) is a subset of the true ROA (highlighted in red). We can clearly see in the figure that for all $\bm{x}$ satisfying $\dot{V}(\bm{x}) = 0$, $V(\bm{x}) \geq \rho$.
 
@@ -437,13 +429,11 @@ $$
 
 We apply the described method above to find a quadratic Lyapunov function of the form $V(\bm{x}) = \bm{x}^\top \mathbf{P} \bm{x}$ and determine the ROA.
 
-<a target="_blank" href="https://colab.research.google.com/github/wei-chen-li/wei-chen-li.github.io/blob/main/content/post/convex-lyapunov-search/notebooks/van-der-pol-lyapunov-search.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" class="badge"/>
-</a>
+{{< colab "van-der-pol-lyapunov-search.ipynb" >}}
 
 <br>
 
-<img src="figures/van-der-pol-quadratic-roa.svg" alt="best quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="figure" style="width:20rem; height:auto;"/>
+<img src="figures/van-der-pol-quadratic-roa.svg" alt="best quadratic approximation of the region of attraction of the time-reversed van der Pol oscillator" class="media" style="width:20rem; height:auto;"/>
 
 The green region represents the computed ROA, while the yellow region corresponds to the solution from the [previous example](#ex:van-der-pol). By allowing the Lyapunov function to vary, we obtain a larger ROA compared to the fixed Lyapunov function approach.
 

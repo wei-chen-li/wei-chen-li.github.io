@@ -484,13 +484,7 @@ label.margin-toggle:not(.sidenote-number) {
     padding: 0 0.8em 0 0.8em;
 }
 
-.badge {
-    margin: 0;
-    height: 2rem;
-    width: auto;
-}
-
-.figure {
+.media {
     display: block;
     margin-left: auto;
     margin-right: auto;
