@@ -4,22 +4,22 @@ type: landing
 sections:
   - block: collection
     content:
-      title: Preprint
+      title: Journal article
       filters:
         folders:
           - publication
-        publication_type: 'article'
+        publication_type: 'article-journal'
     design:
       view: citation
       css_class: pub-group
 
   - block: collection
     content:
-      title: Journal article
+      title: Preprint
       filters:
         folders:
           - publication
-        publication_type: 'article-journal'
+        publication_type: 'article'
     design:
       view: citation
       css_class: pub-group
