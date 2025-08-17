@@ -39,9 +39,10 @@ profiles:
 
 ## About Me
 
-I received my BS and MS degree from National Taiwan University. Currently I am working as a research assistant. My areas of research include modeling, Bayesian inference, and convex optimization with application to sensing and robot manipulation.
+I am a first-year PhD student in robotics as Georgia Tech. My current interest is deformable object manipulation. Utilizing simulation, control theory, and machine learning to investigate high-dimensional state-spaces. I have worked on system identification for high-dimensional systems in the past.
 
-Visit my [github](https://github.com/wei-chen-li) for some of my projects.
+I have implemented a physics engine capable of simulating slender deformable object including [filaments](meshcat-recordings/entangling-filament-gripper.html), [ropes](meshcat-recordings/knot-tightening.html), [conveyor belts](meshcat-recordings/conveyor-belt.html), and [shoelaces](meshcat-recordings/shoelace-tying.html).
+Visit [here](https://github.com/wei-chen-li/drake/tree/DER-dev/examples/multibody/filament) to try it out!
 
 I keep a [blog](post/) on things that are not easy to find on the internet.
 
