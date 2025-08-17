@@ -32,18 +32,15 @@ profiles:
   - icon: brands/github
     url: https://github.com/wei-chen-li
   - icon: envelope
-    url: 'mailto:williamrob104@gmail.com'
+    url: 'mailto:wli777@gatech.edu'
   - icon: brands/cv
-    url: 'uploads/CV.pdf'
+    url: 'uploads/Wei-Chen_Li_CV.pdf'
 ---
 
 ## About Me
 
-I am a first-year PhD student in robotics as Georgia Tech. My current interest is deformable object manipulation. Utilizing simulation, control theory, and machine learning to investigate high-dimensional state-spaces. I have worked on system identification for high-dimensional systems in the past.
+I am a first-year PhD student in robotics as Georgia Tech. My current interest is deformable object manipulation. Utilizing simulation, control theory, and machine learning to investigate high-dimensional state-spaces. I have worked on developing algorithms for high-dimensional system identification in the past.
 
-I have implemented a physics engine capable of simulating slender deformable object including [filaments](meshcat-recordings/entangling-filament-gripper.html), [ropes](meshcat-recordings/knot-tightening.html), [conveyor belts](meshcat-recordings/conveyor-belt.html), and [shoelaces](meshcat-recordings/shoelace-tying.html).
-Visit [here](https://github.com/wei-chen-li/drake/tree/DER-dev/examples/multibody/filament) to try it out!
+I have implemented a [physics engine](https://github.com/wei-chen-li/drake/tree/DER-dev/examples/multibody/filament) capable of simulating slender deformable objects with accurate contact dynamics. Some examples include [filaments](meshcat-recordings/entangling-filament-gripper.html), [ropes](meshcat-recordings/knot-tightening.html), [conveyor](meshcat-recordings/conveyor-belt.html) [belts](meshcat-recordings/crowned-pulley.html), and [shoelaces](meshcat-recordings/shoelace-tying.html).
 
-I keep a [blog](post/) on things that are not easy to find on the internet.
-
-I am also a film lover. Visit my [letterboxd](https://letterboxd.com/williamrob104) profile page.
+I keep a [blog](post/) on things that are not easy to find on the internet
