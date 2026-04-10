@@ -24,4 +24,4 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a first-year PhD student in robotics as Georgia Tech. My current interest is differentiable simulation and planning through contact. Utilizing physics prior to optimize trajectories sample-efficiently, as a source for generating robot contact-rich manipulation data.
+I am a first-year PhD student in robotics at Georgia Tech. My research focuses on differentiable simulation and control through contact. I leverage physics-based priors to enable sample-efficient trajectory and policy optimization for generating data in contact-rich manipulation tasks, as well as to improve our understanding of manipulation.

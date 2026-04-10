@@ -7,11 +7,10 @@
   journal={arXiv preprint arXiv:2602.09368},
   year={2026},
   doi={10.48550/arXiv.2602.09368},
-  note={Submitted to Robotics: Science and Systems},
   abstract={Gradient-based methods can efficiently optimize controllers using physical priors and differentiable simulators, but contact-rich manipulation remains challenging due to discontinuous or vanishing gradients from hybrid contact dynamics. Smoothing the dynamics yields continuous gradients, but the resulting model mismatch can cause controller failures when executed on real systems. We address this trade-off by planning with smoothed dynamics while explicitly quantifying and compensating for the induced errors, providing formal guarantees of constraint satisfaction and goal reachability on the true hybrid dynamics. Our method smooths both contact dynamics and geometry via a novel differentiable simulator based on convex optimization, which enables us to characterize the discrepancy from the true dynamics as a set-valued deviation. This deviation constrains the optimization of time-varying affine feedback policies through analytical bounds on the system's reachable set, enabling robust constraint satisfaction guarantees for the true closed-loop hybrid dynamics, while relying solely on informative gradients from the smoothed dynamics. We evaluate our method on several contact-rich tasks, including planar pushing, object rotation, and in-hand dexterous manipulation, achieving guaranteed constraint satisfaction with lower safety violation and goal error than baselines. By bridging differentiable physics with set-valued robust control, our method is the first certifiable gradient-based policy synthesis method for contact-rich manipulation.},
-  bibtex_show = {true},
   pdf={https://arxiv.org/pdf/2602.09368},
   google_scholar_id={zYLM7Y9cAGgC},
+  preview={li2026certified.gif},
   selected={true},
 }
 
@@ -22,13 +21,12 @@
   year={2026},
   doi={10.48550/arXiv.2509.13434},
   abstract={We present a computational framework for simulating filaments interacting with rigid bodies through contact. Filaments are challenging to simulate due to their codimensionality, i.e., they are one-dimensional structures embedded in three-dimensional space. Existing methods often assume that filaments remain permanently attached to rigid bodies. Our framework unifies discrete elastic rod (DER) modeling, a pressure field patch contact model, and a convex contact formulation to accurately simulate frictional interactions between slender filaments and rigid bodies - capabilities not previously achievable. Owing to the convex formulation of contact, each time step can be solved to global optimality, guaranteeing complementarity between contact velocity and impulse. We validate the framework by assessing the accuracy of frictional forces and comparing its physical fidelity against baseline methods. Finally, we demonstrate its applicability in both soft robotics, such as a stochastic filament-based gripper, and deformable object manipulation, such as shoelace tying, providing a versatile simulator for systems involving complex filament-filament and filament-rigid body interactions.},
-  bibtex_show = {true},
   pdf={https://arxiv.org/pdf/2509.13434},
   video={https://www.youtube.com/watch?v=wnrnlKkI7yQ},
   code={https://github.com/wei-chen-li/drake-DER},
   google_scholar_id={UeHWp8X0CEIC},
+  preview={li2026convex.gif},
 }
-
 
 @article{li2025eddy,
   author={Li, Wei-Chen and Lin, Chun-Yeon},
@@ -40,10 +38,10 @@
   pages={3072-3080},
   doi={10.1109/TMECH.2025.3565800},
   abstract={This article presents an eddy current tomography framework for imaging defects in metal structures. The tomography problem is formulated as a linear inverse problem with a binary solution vector. A Bayesian approach is utilized, incorporating a binary-inducing prior and determining the posterior probability conditioned on the measurements. Since recovering binary vectors from underdetermined linear measurements is NP-hard, an approximation to the true posterior is obtained by minimizing a Kullback-Leibler (KL) divergence. Alternatively, a convex optimization approach relaxes the binary constraint and applies alternating direction method of multipliers (ADMM) to compute a solution. The convergence of both algorithms is proven. To improve computational efficiency, the two algorithms are cascaded and augmented with a decomposition technique to form a hybrid algorithm. The proposed framework is validated experimentally with a prototype eddy current sensing probe, demonstrating the ability to image defects as small as 1 mm at various depths using a sensor array with 4 mm spacing.},
-  bibtex_show = {true},
   pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11007757},
   code={https://github.com/wei-chen-li/Binary-Vector-Recovery},
   google_scholar_id={qjMakFHDy7sC},
+  preview={li2025eddy.png},
 }
 
 @article{li2024sparse,
@@ -56,10 +54,10 @@
   pages={14082-14092},
   doi={10.1109/JSEN.2024.3381623},
   abstract={This study presents a novel eddy current sensing method for imaging defect distribution in multilayered nonferrous metal plates using an array of magnetic sensors. This method involves dividing the metal plate into small voxels to facilitate reconstruction and uses multifrequency to excite the coil. For each frequency, reconstructing defects from magnetic flux density (MFD) measurements is formulated as a linear inverse problem. The absence or presence of a defect strongly suggests that the solution to the linear inverse problem is binary. This study develops an algorithm under a statistical framework to solve the linear inverse problem with binary constraints. The algorithm introduces a Bernoulli prior over the hidden variables and uses a variational Bayesian inference (VBI) to analytically approximate the posterior probability of the hidden variables conditioned on the observed data. The effectiveness of the proposed method is demonstrated using numerically simulated data and a prototype consisting of a coil and an 8\times8 array of magnetic sensors with 4 mm intervals. The results demonstrate that the method is feasible for imaging defects of 2 mm with a depth resolution of 0.5 mm.},
-  bibtex_show = {true},
   pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10487644},
   code={https://github.com/wei-chen-li/Eddy-Current-Tomography},
   google_scholar_id={u-x6o8ySG0sC},
+  preview={li2024sparse.png},
 }
 
 @article{li2024extension,
@@ -69,22 +67,8 @@
   year={2024},
   doi={10.48550/arXiv.2412.01055},
   abstract={Common imaging techniques for detecting structural defects typically require sampling at more than twice the spatial frequency to achieve a target resolution. This study introduces a novel framework for imaging structural defects using significantly fewer samples. In this framework, defects are modeled as regions where physical properties shift from their nominal values to resemble those of air, and a linear approximation is formulated to relate these binary shifts in physical properties with corresponding changes in measurements. Recovering a binary vector from linear measurements is generally an NP-hard problem. To address this challenge, this study proposes two algorithmic approaches. The first approach relaxes the binary constraint, using convex optimization to find a solution. The second approach incorporates a binary-inducing prior and employs approximate Bayesian inference to estimate the posterior probability of the binary vector given the measurements. Both algorithmic approaches demonstrate better performance compared to existing compressive sampling methods for binary vector recovery. The framework's effectiveness is illustrated through examples of eddy current sensing to image defects in metal structures.},
-  bibtex_show = {true},
   pdf={https://arxiv.org/pdf/2412.01055},
   code={https://github.com/wei-chen-li/Binary-Vector-Recovery},
   google_scholar_id={2osOgNQ5qMEC},
-}
-
-@mastersthesis{li2024extensionb,
-  title={Extension of Compressive Sampling for Eddy Current {3D} Reconstruction},
-  author={Li, Wei-Chen},
-  school={National Taiwan University},
-  year={2024},
-  doi={10.6342/NTU202400686},
-  abstract={With the advent of Industry 4.0, ensuring the quality inspection of large structures has become increasingly crucial. Traditional raster scanning methods necessitate sampling at more than twice the spatial frequency to achieve a desired spatial resolution. Another sampling paradigm, known as compressive sampling, exploits signal sparsity to achieve the same resolution using fewer samples than Nyquist sampling would otherwise require. However, compressive sampling, which rely solely on sparsity, encounter challenges when a detailed depth resolution is necessary. In this study, 3D reconstruction refers to reconstructing both the position and depth of defects within a structure. The key is that defects in structures are binary; they are either present (represented as 1) or absent (represented as 0). Therefore, the signal of interest is not only sparse but also binary, or in some instances, have values between 0 and 1 to indicate partial defects in certain regions.
-This study focuses on the recovery of binary vectors from linear measurements with two approaches. One approach relaxes the binary constraint and employs convex optimization algorithms to solve the problem. Additionally, convergence of the algorithm is proved. Another approach introduces a Bernoulli prior on the vector and computes the variational approximation of the posterior probability of the vector conditioned on the measurements. These algorithms can be adapted to recover unit interval vectors. The convex method inherently handles the recovery of unit interval vectors, while the probabilistic inference-based algorithms can be modified with a beta prior to achieve this as well. These algorithms are tested using measurement matrices that are either Gaussian random or have collinear columns, and demonstrate superior performance compared to existing compressive sampling algorithms on binary vector recovery tasks.
-On the application side, perturbation analysis is applied to linearize the relationship between the magnetic flux density measurements and the material properties of the inspected structure. The linearized sensitivity matrix is essentially the inner product of two electric fields: one induced by electric current density in the coil, and the other induced by a point magnetic current density at the magnetic sensor. For efficient calculation of the sensitivity matrices, semi-analytical solutions are derived for the electromagnetic fields in several geometries and validated against finite element methods.
-Binary vector recovery algorithms are applied to provide 3D reconstructions of defects in a multilayer metal plate, using both numerically simulated and experimental data. The results show that the developed algorithms provide superior depth resolution and reconstruction quality compared to existing compressive sampling algorithms. Specifically, the sensing system is capable of reconstructing defects as small as 2~mm with a depth resolution of 0.5~mm, using a magnetic sensor array with 4~mm intervals. Another example applies unit interval vector recovery algorithms to the inspection of a metal pipe. Reconstructions are merged together as the sensing probe move along the pipe. These two examples not only highlight the potential of efficient sampling in eddy current sensing, but also establish a foundation for applying the extension of compressive sampling to a broader range of physical reconstruction problems.},
-  bibtex_show = {true},
-  pdf={https://tdr.lib.ntu.edu.tw/jspui/retrieve/2743f19a-7031-46db-ba9c-0aa1b06b21c1/ntu-112-2.pdf},
+  preview={li2024extension.png}
 }
