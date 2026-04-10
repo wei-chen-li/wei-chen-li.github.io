@@ -25,6 +25,7 @@
   bibtex_show = {true},
   pdf={https://arxiv.org/pdf/2509.13434},
   video={https://www.youtube.com/watch?v=wnrnlKkI7yQ},
+  code={https://github.com/wei-chen-li/drake-DER},
   google_scholar_id={UeHWp8X0CEIC},
 }
 
@@ -41,6 +42,7 @@
   abstract={This article presents an eddy current tomography framework for imaging defects in metal structures. The tomography problem is formulated as a linear inverse problem with a binary solution vector. A Bayesian approach is utilized, incorporating a binary-inducing prior and determining the posterior probability conditioned on the measurements. Since recovering binary vectors from underdetermined linear measurements is NP-hard, an approximation to the true posterior is obtained by minimizing a Kullback-Leibler (KL) divergence. Alternatively, a convex optimization approach relaxes the binary constraint and applies alternating direction method of multipliers (ADMM) to compute a solution. The convergence of both algorithms is proven. To improve computational efficiency, the two algorithms are cascaded and augmented with a decomposition technique to form a hybrid algorithm. The proposed framework is validated experimentally with a prototype eddy current sensing probe, demonstrating the ability to image defects as small as 1 mm at various depths using a sensor array with 4 mm spacing.},
   bibtex_show = {true},
   pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11007757},
+  code={https://github.com/wei-chen-li/Binary-Vector-Recovery},
   google_scholar_id={qjMakFHDy7sC},
 }
 
@@ -56,6 +58,7 @@
   abstract={This study presents a novel eddy current sensing method for imaging defect distribution in multilayered nonferrous metal plates using an array of magnetic sensors. This method involves dividing the metal plate into small voxels to facilitate reconstruction and uses multifrequency to excite the coil. For each frequency, reconstructing defects from magnetic flux density (MFD) measurements is formulated as a linear inverse problem. The absence or presence of a defect strongly suggests that the solution to the linear inverse problem is binary. This study develops an algorithm under a statistical framework to solve the linear inverse problem with binary constraints. The algorithm introduces a Bernoulli prior over the hidden variables and uses a variational Bayesian inference (VBI) to analytically approximate the posterior probability of the hidden variables conditioned on the observed data. The effectiveness of the proposed method is demonstrated using numerically simulated data and a prototype consisting of a coil and an 8\times8 array of magnetic sensors with 4 mm intervals. The results demonstrate that the method is feasible for imaging defects of 2 mm with a depth resolution of 0.5 mm.},
   bibtex_show = {true},
   pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10487644},
+  code={https://github.com/wei-chen-li/Eddy-Current-Tomography},
   google_scholar_id={u-x6o8ySG0sC},
 }
 
@@ -68,6 +71,7 @@
   abstract={Common imaging techniques for detecting structural defects typically require sampling at more than twice the spatial frequency to achieve a target resolution. This study introduces a novel framework for imaging structural defects using significantly fewer samples. In this framework, defects are modeled as regions where physical properties shift from their nominal values to resemble those of air, and a linear approximation is formulated to relate these binary shifts in physical properties with corresponding changes in measurements. Recovering a binary vector from linear measurements is generally an NP-hard problem. To address this challenge, this study proposes two algorithmic approaches. The first approach relaxes the binary constraint, using convex optimization to find a solution. The second approach incorporates a binary-inducing prior and employs approximate Bayesian inference to estimate the posterior probability of the binary vector given the measurements. Both algorithmic approaches demonstrate better performance compared to existing compressive sampling methods for binary vector recovery. The framework's effectiveness is illustrated through examples of eddy current sensing to image defects in metal structures.},
   bibtex_show = {true},
   pdf={https://arxiv.org/pdf/2412.01055},
+  code={https://github.com/wei-chen-li/Binary-Vector-Recovery},
   google_scholar_id={2osOgNQ5qMEC},
 }
 
