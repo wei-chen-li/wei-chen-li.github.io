@@ -14,7 +14,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: false # includes a list of news items
+  enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -24,4 +24,4 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a first-year PhD student in robotics at Georgia Tech. My research focuses on differentiable simulation and control through contact. I leverage physics-based priors to enable sample-efficient trajectory and policy optimization for generating data in contact-rich manipulation tasks, as well as to improve our understanding of manipulation.
+I am a first-year PhD student in robotics at Georgia Tech. My research focuses on differentiable simulation and control through contact. I leverage physics priors to enable sample-efficient trajectory and policy optimization. This enables the generation of vast data in contact-rich manipulation tasks, as well as to improve our understanding of manipulation.

@@ -1,10 +1,10 @@
 ---
 ---
 
-@article{li2026certified,
-  title={Certified Gradient-Based Contact-Rich Manipulation via Smoothing-Error Reachable Tubes},
+@inproceedings{li2026certified,
   author={Li, Wei-Chen and Chou, Glen},
-  journal={arXiv preprint arXiv:2602.09368},
+  booktitle={Proceedings of Robotics: Science and Systems (RSS)},
+  title={Certified Gradient-Based Contact-Rich Manipulation via Smoothing-Error Reachable Tubes},
   year={2026},
   doi={10.48550/arXiv.2602.09368},
   abstract={Gradient-based methods can efficiently optimize controllers using physical priors and differentiable simulators, but contact-rich manipulation remains challenging due to discontinuous or vanishing gradients from hybrid contact dynamics. Smoothing the dynamics yields continuous gradients, but the resulting model mismatch can cause controller failures when executed on real systems. We address this trade-off by planning with smoothed dynamics while explicitly quantifying and compensating for the induced errors, providing formal guarantees of constraint satisfaction and goal reachability on the true hybrid dynamics. Our method smooths both contact dynamics and geometry via a novel differentiable simulator based on convex optimization, which enables us to characterize the discrepancy from the true dynamics as a set-valued deviation. This deviation constrains the optimization of time-varying affine feedback policies through analytical bounds on the system's reachable set, enabling robust constraint satisfaction guarantees for the true closed-loop hybrid dynamics, while relying solely on informative gradients from the smoothed dynamics. We evaluate our method on several contact-rich tasks, including planar pushing, object rotation, and in-hand dexterous manipulation, achieving guaranteed constraint satisfaction with lower safety violation and goal error than baselines. By bridging differentiable physics with set-valued robust control, our method is the first certifiable gradient-based policy synthesis method for contact-rich manipulation.},
@@ -14,9 +14,9 @@
   selected={true},
 }
 
-@INPROCEEDINGS{li2026convex,
+@inproceedings{li2026convex,
   author={Li, Wei-Chen and Chou, Glen},
-  booktitle={2026 IEEE International Conference on Robotics and Automation},
+  booktitle={2026 IEEE International Conference on Robotics and Automation (ICRA)},
   title={A Convex Formulation of Compliant Contact Between Filaments and Rigid Bodies},
   year={2026},
   doi={10.48550/arXiv.2509.13434},
@@ -26,6 +26,7 @@
   code={https://github.com/wei-chen-li/drake-DER},
   google_scholar_id={UeHWp8X0CEIC},
   preview={li2026convex.gif},
+  selected={true},
 }
 
 @article{li2025eddy,
