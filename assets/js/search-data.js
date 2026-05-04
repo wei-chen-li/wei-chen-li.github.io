@@ -19,8 +19,8 @@ ninja.data = [{
         },{id: "news-my-paper-on-simulating-slender-deformables-using-convex-optimization-was-accepted-to-icra-2026",
           title: 'My paper on simulating slender deformables using convex optimization was accepted to ICRA...',
           description: "",
-          section: "News",},{id: "news-my-paper-on-robust-policy-optimization-for-contact-rich-manipulation-was-accepted-to-rss-2026",
-          title: 'My paper on robust policy optimization for contact-rich manipulation was accepted to RSS...',
+          section: "News",},{id: "news-my-paper-on-robust-control-and-reachability-for-contact-rich-manipulation-was-accepted-to-rss-2026",
+          title: 'My paper on robust control and reachability for contact-rich manipulation was accepted to...',
           description: "",
           section: "News",},{
         id: 'social-scholar',
