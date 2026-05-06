@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-04-09'
+  last_updated: '2026-05-06'
 papers:
   kk9RPBMAAAAJ:2osOgNQ5qMEC:
     citations: 1
     title: Extension of compressive sampling to binary vector recovery for model-based defect imaging
     year: '2024'
   kk9RPBMAAAAJ:UeHWp8X0CEIC:
-    citations: 1
+    citations: 2
     title: A convex formulation of compliant contact between filaments and rigid bodies
     year: '2025'
   kk9RPBMAAAAJ:qjMakFHDy7sC:
@@ -18,6 +18,6 @@ papers:
     title: Sparse magnetic array for the imaging of defects in multilayer metals
     year: '2024'
   kk9RPBMAAAAJ:zYLM7Y9cAGgC:
-    citations: 0
+    citations: 1
     title: Certified gradient-based contact-rich manipulation via smoothing-error reachable tubes
     year: '2026'
