@@ -9,6 +9,9 @@
   doi={10.48550/arXiv.2602.09368},
   abstract={Gradient-based methods can efficiently optimize controllers using physical priors and differentiable simulators, but contact-rich manipulation remains challenging due to discontinuous or vanishing gradients from hybrid contact dynamics. Smoothing the dynamics yields continuous gradients, but the resulting model mismatch can cause controller failures when executed on real systems. We address this trade-off by planning with smoothed dynamics while explicitly quantifying and compensating for the induced errors, providing formal guarantees of constraint satisfaction and goal reachability on the true hybrid dynamics. Our method smooths both contact dynamics and geometry via a novel differentiable simulator based on convex optimization, which enables us to characterize the discrepancy from the true dynamics as a set-valued deviation. This deviation constrains the optimization of time-varying affine feedback policies through analytical bounds on the system's reachable set, enabling robust constraint satisfaction guarantees for the true closed-loop hybrid dynamics, while relying solely on informative gradients from the smoothed dynamics. We evaluate our method on several contact-rich tasks, including planar pushing, object rotation, and in-hand dexterous manipulation, achieving guaranteed constraint satisfaction with lower safety violation and goal error than baselines. By bridging differentiable physics with set-valued robust control, our method is the first certifiable gradient-based policy synthesis method for contact-rich manipulation.},
   pdf={https://arxiv.org/pdf/2602.09368},
+  website={https://trustworthyrobotics.github.io/quasistatic-contact-SLS},
+  video={https://www.youtube.com/watch?v=LFxi2hkQJyo},
+  code={https://github.com/trustworthyrobotics/quasistatic-contact-SLS},
   google_scholar_id={zYLM7Y9cAGgC},
   preview={li2026certified.gif},
 }
