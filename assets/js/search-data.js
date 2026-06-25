@@ -23,6 +23,13 @@ ninja.data = [{
           title: 'My paper on robust control and reachability for contact-rich manipulation was accepted to...',
           description: "",
           section: "News",},{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/Wei-Chen_Li_CV.pdf", "_blank");
+        },
+      },{
         id: 'social-scholar',
         title: 'Google Scholar',
         section: 'Socials',
@@ -30,11 +37,11 @@ ninja.data = [{
           window.open("https://scholar.google.com/citations?user=kk9RPBMAAAAJ", "_blank");
         },
       },{
-        id: 'social-cv',
-        title: 'CV',
+        id: 'social-github',
+        title: 'GitHub',
         section: 'Socials',
         handler: () => {
-          window.open("/assets/pdf/Wei-Chen_Li_CV.pdf", "_blank");
+          window.open("https://github.com/wei-chen-li", "_blank");
         },
       },{
         id: 'social-email',
