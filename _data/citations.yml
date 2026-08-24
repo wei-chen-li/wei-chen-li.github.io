@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-20'
+  last_updated: '2026-08-24'
 papers:
   kk9RPBMAAAAJ:2osOgNQ5qMEC:
     citations: 1
@@ -14,7 +14,7 @@ papers:
     title: A convex formulation of compliant contact between filaments and rigid bodies
     year: '2025'
   kk9RPBMAAAAJ:qjMakFHDy7sC:
-    citations: 0
+    citations: 1
     title: Eddy current defect tomography using a hybrid binary vector recovery algorithm
     year: '2025'
   kk9RPBMAAAAJ:u-x6o8ySG0sC:
