@@ -1,12 +1,12 @@
 metadata:
-  last_updated: '2026-08-24'
+  last_updated: '2026-08-31'
 papers:
   kk9RPBMAAAAJ:2osOgNQ5qMEC:
     citations: 1
     title: Extension of compressive sampling to binary vector recovery for model-based defect imaging
     year: '2024'
   kk9RPBMAAAAJ:Tyk-4Ss8FVUC:
-    citations: 3
+    citations: 4
     title: 'Robustness without Wrinkles: Parallel Simulation and Robust MPC for Certified Deformable Manipulation'
     year: '2026'
   kk9RPBMAAAAJ:UeHWp8X0CEIC:
