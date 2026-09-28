@@ -1,6 +1,16 @@
 ---
 ---
 
+@article{li2026lifted,
+  title={Lifted multiple shooting for parallel-in-time contact-rich trajectory optimization},
+  author={Li, Wei-Chen and Chou, Glen},
+  journal={preprint},
+  year={2026},
+  abstract={Planning through contact requires reasoning about the full dynamics of a robot and its environment, including inertial effects, contact impulses, and friction. While trajectory optimization provides a natural framework for this problem, contact introduces an inner contact-resolution problem whose solution determines the system dynamics and makes gradient-based optimization challenging. In this work, we propose lifted multiple shooting, a trajectory optimization formulation that enables planning over fully dynamic contact interactions while retaining the underlying contact-resolution structure. Contact impulses are explicitly represented during optimization, allowing the planner to optimize the complete dynamic trajectory while the contact response remains governed by a separate contact-resolution problem. Our formulation accommodates a broad class of contact constitutive relations and computes their sensitivities through implicit differentiation. To exploit these gradients for efficient planning, we design IP-PAS, a temporally parallelized trajectory optimization algorithm using parallel associative scans that leverages the time-separable structure enabled by our transcription, speeding up planning times on high-dimensional examples. We evaluate it on fully dynamic contact planning tasks, including contact-rich non-prehensile pushing and in-hand manipulation. Across six contact-rich tasks, LMS improves IPOPT success rates by up to 81.5 percentage points over standard multiple shooting, while IP-PAS preserves comparable solution quality to serial methods with up to a 3.1× speedup and scales to horizons of 40,000.},
+  pdf={li2026lifted.pdf},
+  preview={li2026lifted.gif},
+}
+
 @inproceedings{li2026robustness,
   title={Robustness without Wrinkles: Parallel Simulation & Robust MPC for Certified Deformable Manipulation},
   author={Li, Wei-Chen and Fang, Jeffrey and Polisetti, Sasanka and Song, Yuexi and Chou, Glen},
